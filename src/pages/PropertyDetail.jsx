@@ -81,7 +81,7 @@ const handleStartChat = () => {
     return (
       <div style={{ maxWidth: "960px", margin: "0 auto", padding: "3rem 2rem" }}>
         <div style={{ height: "320px", background: "var(--fog)", borderRadius: "10px", marginBottom: "2rem", animation: "pulse 1.5s ease-in-out infinite" }} />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "2.5rem" }}>
+        <div className="property-detail-grid" style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "2.5rem" }}>
           <div>
             <div style={{ height: "2rem", background: "var(--fog)", borderRadius: "4px", marginBottom: "1rem", width: "60%" }} />
             <div style={{ height: "1rem", background: "var(--fog)", borderRadius: "4px", marginBottom: ".5rem" }} />
