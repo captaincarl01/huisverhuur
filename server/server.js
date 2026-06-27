@@ -18,7 +18,13 @@ const io = new Server(server, {
   cors: { origin: ["http://localhost:3000", "http://localhost:5173"], methods: ["GET", "POST"] },
 });
 
-app.use(cors({ origin: ["http://localhost:3000", "http://localhost:5173"], credentials: true }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://huisverhuur.vercel.app",
+  ],
+  credentials: true,
+}));
 app.use(express.json());
 
 app.get("/api/health", (req, res) => res.json({ status: "HuisVerhuur API running ✅" }));
