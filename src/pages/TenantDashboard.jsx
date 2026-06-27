@@ -11,7 +11,7 @@ export default function TenantDashboard() {
   useEffect(() => {
     const fetchInquiries = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/inquiries/tenant", {
+        const res = await fetch("https://huisverhuur-production.up.railway.app/api/inquiries/tenant", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();

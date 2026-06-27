@@ -29,10 +29,10 @@ export default function LandlordDashboard() {
     setLoading(true);
     try {
       const [propRes, inqRes] = await Promise.all([
-        fetch("http://localhost:5000/api/properties/landlord/my-listings", {
+        fetch("https://huisverhuur-production.up.railway.app/api/properties/landlord/my-listings", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("http://localhost:5000/api/inquiries/landlord", {
+        fetch("https://huisverhuur-production.up.railway.app/api/inquiries/landlord", {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
@@ -82,7 +82,7 @@ export default function LandlordDashboard() {
     }
     setFormLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/properties", {
+      const res = await fetch("https://huisverhuur-production.up.railway.app/api/properties", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -111,7 +111,7 @@ export default function LandlordDashboard() {
 
   const handleDeleteProperty = async (id) => {
     if (!window.confirm("Delete this listing?")) return;
-    await fetch(`http://localhost:5000/api/properties/${id}`, {
+    await fetch(`https://huisverhuur-production.up.railway.app/api/properties/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -119,7 +119,7 @@ export default function LandlordDashboard() {
   };
 
   const handleReply = async (inquiryId, reply) => {
-    await fetch(`http://localhost:5000/api/inquiries/${inquiryId}/reply`, {
+    await fetch(`https://huisverhuur-production.up.railway.app/api/inquiries/${inquiryId}/reply`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

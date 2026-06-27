@@ -31,13 +31,13 @@ const handleStartChat = () => {
     const fetchProperty = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:5000/api/properties/${id}`);
+        const res = await fetch(`https://huisverhuur-production.up.railway.app/api/properties/${id}`);
         if (!res.ok) { setProperty(null); setLoading(false); return; }
         const data = await res.json();
         setProperty(data);
 
         // Fetch related
-        const relRes = await fetch(`http://localhost:5000/api/properties?city=${data.city}`);
+        const relRes = await fetch(`https://huisverhuur-production.up.railway.app/api/properties?city=${data.city}`);
         const relData = await relRes.json();
         setRelated(Array.isArray(relData) ? relData.filter(p => p._id !== id).slice(0, 3) : []);
       } catch (err) {
@@ -51,7 +51,7 @@ const handleStartChat = () => {
   const handleInquirySubmit = async (formData) => {
     if (!user) { navigate("/login"); return; }
     try {
-      const res = await fetch("http://localhost:5000/api/inquiries", {
+      const res = await fetch("https://huisverhuur-production.up.railway.app/api/inquiries", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

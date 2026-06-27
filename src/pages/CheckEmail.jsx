@@ -11,7 +11,7 @@ export default function CheckEmail() {
   const handleResend = async () => {
     setLoading(true);
     try {
-      await fetch("http://localhost:5000/api/auth/resend-verification", {
+      await fetch("https://huisverhuur-production.up.railway.app/api/auth/resend-verification", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

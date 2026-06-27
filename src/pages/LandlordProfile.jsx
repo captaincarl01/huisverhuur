@@ -65,7 +65,7 @@ function LeaveReviewForm({ landlordId, onSuccess }) {
   const [propertyId, setPropertyId] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/reviews/landlord/${landlordId}/inquiry-property`, {
+    fetch(`https://huisverhuur-production.up.railway.app/api/reviews/landlord/${landlordId}/inquiry-property`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(r => r.json())
@@ -79,7 +79,7 @@ function LeaveReviewForm({ landlordId, onSuccess }) {
     if (comment.length < 10) { setError("Review must be at least 10 characters."); return; }
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/reviews", {
+      const res = await fetch("https://huisverhuur-production.up.railway.app/api/reviews", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ landlordId, propertyId, rating, comment }),
@@ -148,7 +148,7 @@ export default function LandlordProfile() {
   const fetchProfile = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/landlords/${id}`);
+      const res = await fetch(`https://huisverhuur-production.up.railway.app/api/landlords/${id}`);
       const d = await res.json();
       if (res.ok) setData(d);
     } catch (err) { console.error(err); }
@@ -160,7 +160,7 @@ export default function LandlordProfile() {
   useEffect(() => {
     if (!user || user.role !== "tenant") return;
     const token = localStorage.getItem("hv_token");
-    fetch(`http://localhost:5000/api/reviews/can-review/${id}`, {
+    fetch(`https://huisverhuur-production.up.railway.app/api/reviews/can-review/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(r => r.json())

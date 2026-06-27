@@ -16,7 +16,7 @@ export function SocketProvider({ children }) {
       return;
     }
 
-    const newSocket = io("http://localhost:5000", {
+    const newSocket = io("https://huisverhuur-production.up.railway.app", {
       auth: { token },
       transports: ["websocket"],
     });

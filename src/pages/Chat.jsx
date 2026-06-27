@@ -38,7 +38,7 @@ export default function Chat() {
 
   const fetchConversations = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/messages/conversations", {
+      const res = await fetch("https://huisverhuur-production.up.railway.app/api/messages/conversations", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -53,7 +53,7 @@ export default function Chat() {
     if (!activeConv) return;
     const fetchMessages = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/messages/${activeConv}`, {
+        const res = await fetch(`https://huisverhuur-production.up.railway.app/api/messages/${activeConv}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -96,7 +96,7 @@ export default function Chat() {
     const { otherId, propertyId } = parsed;
     setSending(true);
     try {
-      const res = await fetch("http://localhost:5000/api/messages", {
+      const res = await fetch("https://huisverhuur-production.up.railway.app/api/messages", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ receiverId: otherId, propertyId, content: content.trim() }),

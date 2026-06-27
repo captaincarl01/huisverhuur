@@ -24,7 +24,7 @@ export default function Home() {
       if (filters?.type) params.append("type", filters.type);
       if (filters?.maxPrice && filters.maxPrice !== Infinity) params.append("maxPrice", filters.maxPrice);
 
-      const res = await fetch(`http://localhost:5000/api/properties?${params}`);
+      const res = await fetch(`https://huisverhuur-production.up.railway.app/api/properties?${params}`);
       const data = await res.json();
       setProperties(Array.isArray(data) ? data : []);
     } catch (err) {
