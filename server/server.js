@@ -21,7 +21,7 @@ const io = new Server(server, {
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://huisverhuur.vercel.app",
+    "https://huisverhuuer.vercel.app",
   ],
   credentials: true,
 }));
