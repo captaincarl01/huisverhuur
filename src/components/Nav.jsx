@@ -26,7 +26,7 @@ export default function Nav() {
           <Link to="/contact" onClick={close}>Contact</Link>
           {user ? (
             <>
-              <Link to="/messages" style={{ position: "relative" }} onClick={close}>
+              <Link to="/messages" style={ { position: "relative" }} onClick={close}>
                 💬 Chat
                 {notifications.length > 0 && (
                   <span style={{ position: "absolute", top: "-6px", right: "-8px", background: "var(--tulip)", color: "white", borderRadius: "100px", padding: "0 .4rem", fontSize: ".65rem", fontWeight: 700 }}>
