@@ -1,0 +1,28 @@
+export const CITIES = [
+  { label: "All Cities", value: "", flag: "🌍" },
+  { label: "Amsterdam",  value: "Amsterdam",  flag: "🚲" },
+  { label: "Rotterdam",  value: "Rotterdam",  flag: "⚓" },
+  { label: "Frankfurt",  value: "Frankfurt",  flag: "🏦" },
+  { label: "Utrecht",    value: "Utrecht",    flag: "🎓" },
+  { label: "The Hague",  value: "The Hague",  flag: "⚖️" },
+  { label: "Eindhoven",  value: "Eindhoven",  flag: "💡" },
+];
+
+export const TYPES = ["All", "Apartment", "House", "Studio", "Canal House"];
+
+const PROPERTIES = [
+  { id: 1, emoji: "🏠", city: "Amsterdam", neighborhood: "Jordaan", title: "Bright Canal-View Apartment", type: "Apartment", beds: 2, baths: 1, sqm: 78, price: 1950, available: "Aug 1, 2026", badge: "New", desc: "A beautifully renovated apartment on the third floor of a classic Amsterdam canal house. Original wooden beams, large south-facing windows, and a modern open kitchen. Walking distance to the Westerkerk and top restaurants." },
+  { id: 2, emoji: "🏡", city: "Rotterdam", neighborhood: "Kralingen", title: "Spacious Family House", type: "House", beds: 3, baths: 2, sqm: 140, price: 2200, available: "Jul 15, 2026", badge: null, desc: "A generous detached house with a private garden in the leafy Kralingen district. Modern kitchen, large living room, and a garage. Near the Kralingse Plas lake and excellent international schools." },
+  { id: 3, emoji: "🏢", city: "Frankfurt", neighborhood: "Sachsenhausen", title: "Modern Studio, City Centre", type: "Studio", beds: 0, baths: 1, sqm: 38, price: 1100, available: "Now", badge: "Available Now", desc: "A compact and well-designed studio in the heart of Frankfurt's Sachsenhausen neighbourhood. Fully furnished, high-speed internet included, five minutes from the main financial district." },
+  { id: 4, emoji: "🏛️", city: "Amsterdam", neighborhood: "De Pijp", title: "Historic Canal House, 3 Floors", type: "Canal House", beds: 4, baths: 2, sqm: 210, price: 3800, available: "Sep 1, 2026", badge: "Premium", desc: "A rare opportunity to rent an entire 17th-century canal house across three floors. Original staircase, restored facades, and a private garden. Suitable for families or professionals sharing." },
+  { id: 5, emoji: "🌆", city: "Utrecht", neighborhood: "Wittevrouwen", title: "Cosy 2-Bed Near University", type: "Apartment", beds: 2, baths: 1, sqm: 65, price: 1450, available: "Aug 15, 2026", badge: null, desc: "A charming apartment in the popular Wittevrouwen neighbourhood, ideal for students or young professionals. Cycle to Utrecht Centraal in 8 minutes. Sunny balcony included." },
+  { id: 6, emoji: "🏗️", city: "Rotterdam", neighborhood: "Kop van Zuid", title: "Penthouse with Erasmus Bridge View", type: "Apartment", beds: 2, baths: 2, sqm: 95, price: 2600, available: "Now", badge: "Available Now", desc: "Floor-to-ceiling windows with a dramatic view of the Erasmus Bridge. A sleek, architect-designed penthouse with underfloor heating, concierge service, and private parking." },
+  { id: 7, emoji: "🏘️", city: "The Hague", neighborhood: "Statenkwartier", title: "Elegant Diplomat Quarter Flat", type: "Apartment", beds: 3, baths: 2, sqm: 120, price: 2100, available: "Jul 1, 2026", badge: null, desc: "A sophisticated apartment in the embassy district, steps from Haagse Bos forest. High ceilings, oak floors, and a fully equipped kitchen. Often let to expats and international civil servants." },
+  { id: 8, emoji: "💡", city: "Eindhoven", neighborhood: "Strijp-S", title: "Loft in Former Philips Factory", type: "Apartment", beds: 1, baths: 1, sqm: 72, price: 1250, available: "Aug 1, 2026", badge: "Design District", desc: "A striking conversion loft in the iconic Strijp-S creative quarter. Exposed concrete, 4-metre ceilings, and a design community right at your doorstep. Perfect for creatives and tech workers." },
+  { id: 9, emoji: "🌊", city: "Amsterdam", neighborhood: "Watergraafsmeer", title: "Quiet Garden Apartment", type: "Apartment", beds: 2, baths: 1, sqm: 82, price: 1750, available: "Aug 1, 2026", badge: null, desc: "Ground-floor apartment with a private garden terrace in the peaceful Watergraafsmeer district. Modern renovation, open-plan living, and great cycling connections to the city centre." },
+  { id: 10, emoji: "🏦", city: "Frankfurt", neighborhood: "Westend", title: "Executive Apartment, Banking District", type: "Apartment", beds: 3, baths: 2, sqm: 115, price: 3100, available: "Jul 1, 2026", badge: "Premium", desc: "A high-spec apartment in Frankfurt's Westend, surrounded by the city's top financial institutions. Concierge, underground parking, and panoramic views from the 14th floor." },
+  { id: 11, emoji: "🌷", city: "The Hague", neighborhood: "Benoordenhout", title: "Villa with Private Garden", type: "House", beds: 4, baths: 3, sqm: 195, price: 3400, available: "Sep 1, 2026", badge: null, desc: "An impressive villa in the prestigious Benoordenhout area, close to the North Sea coast and international schools. Spacious rooms, a mature garden, and a detached garage." },
+  { id: 12, emoji: "🎓", city: "Utrecht", neighborhood: "Lombok", title: "Vibrant Studio Near City Centre", type: "Studio", beds: 0, baths: 1, sqm: 42, price: 980, available: "Now", badge: "Available Now", desc: "A light-filled studio in the multicultural Lombok quarter — one of Utrecht's most vibrant neighbourhoods. Bars, markets, and independent restaurants on your doorstep." },
+];
+
+export default PROPERTIES;
