@@ -75,26 +75,29 @@ export default function Chat() {
   }, [conversations, activeConv]);
 
   useEffect(() => {
-    if (!socket) return;
-    socket.on("newMessage", (message) => {
-  // Only add if it's from the OTHER person, not ourselves
-  // Our own messages are already added by handleSend
-  if (message.sender?._id !== user?._id) {
-    if (message.conversationId === activeConv) {
-      setMessages(prev => prev.find(m => m._id === message._id) ? prev : [...prev, message]);
-    }
-  }
-  fetchConversations();
-});
-    socket.on("userTyping", ({ isTyping }) => setOtherTyping(isTyping));
-    return () => { socket.off("newMessage"); socket.off("userTyping"); };
-  }, [socket, activeConv]);
-
-  useEffect(() => {
   if (messagesContainerRef.current) {
     messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
   }
-}, [messages, otherTyping]);
+}, [messages, otherTyping])
+useEffect(() => {
+  if (!socket) return;
+
+  socket.on("newMessage", (message) => {
+    if (message.sender?._id !== user?._id) {
+      if (message.conversationId === activeConv) {
+        setMessages(prev => prev.find(m => m._id === message._id) ? prev : [...prev, message]);
+      }
+    }
+    fetchConversations();
+  });
+
+  socket.on("userTyping", ({ isTyping }) => setOtherTyping(isTyping));
+
+  return () => {
+    socket.off("newMessage");
+    socket.off("userTyping");
+  };
+}, [socket, activeConv]);
 
   const handleSend = async () => {
     if (!content.trim() || !activeConv || sending) return;
@@ -111,7 +114,7 @@ export default function Chat() {
       const message = await res.json();
       if (!res.ok) return;
       setMessages(prev => prev.find(m => m._id === message._id) ? prev : [...prev, message]);
-      if (socket) socket.emit("sendMessage", { receiverId: otherId, propertyId, content: content.trim(), conversationId: activeConv });
+      
       setContent("");
       handleTypingStop();
       fetchConversations();
