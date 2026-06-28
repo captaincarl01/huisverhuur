@@ -220,7 +220,7 @@ const handleStartChat = () => {
           </div>
 
           {/* Right — sticky price card */}
-          <div className="detail-price-card" style={{ position: "sticky", top: "80px" }}>
+          <div className="detail-price-card" >
             <div style={{ background: "var(--white)", borderRadius: "10px", boxShadow: "0 4px 24px rgba(0,0,0,.1)", padding: "1.6rem" }}>
               <div style={{ fontSize: "1.8rem", fontWeight: 600, color: "var(--canal)", marginBottom: ".2rem" }}>
                 €{property.price?.toLocaleString()} <span style={{ fontSize: ".85rem", fontWeight: 400, color: "var(--mist)" }}>/mo</span>
