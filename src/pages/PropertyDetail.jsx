@@ -120,7 +120,7 @@ const handleStartChat = () => {
             <img
               src={property.images[activeImg]}
               alt={property.title}
-              style={{ width: "100%", height: "380px", objectFit: "cover", borderRadius: "10px", display: "block" }}
+              style={{ width: "100%", maxWidth: "100%", height: window.innerWidth <= 768 ? "250px" : "380px", objectFit: "cover", borderRadius: "10px", display: "block" }}
             />
             {property.images.length > 1 && (
               <div className="img-thumbnails" style={{ display: "flex", gap: ".5rem", marginTop: ".6rem", flexWrap: "wrap" }}>
