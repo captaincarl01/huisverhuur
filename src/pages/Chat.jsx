@@ -25,6 +25,7 @@ export default function Chat() {
   const typingTimeout = useRef(null);
   const typingActive = useRef(false);
   const textareaRef = useRef(null);
+  const messagesContainerRef = useRef(null);
 
   const parseConvId = (convId) => {
     if (!convId) return null;
@@ -90,8 +91,8 @@ export default function Chat() {
   }, [socket, activeConv]);
 
   useEffect(() => {
-  if (messagesEndRef.current) {
-    messagesEndRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  if (messagesContainerRef.current) {
+    messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
   }
 }, [messages, otherTyping]);
 
@@ -214,7 +215,7 @@ export default function Chat() {
             </div>
 
             {/* Conversation list */}
-            <div style={{ overflowY: "auto", flex: 1 }}>
+            <div ref={messagesContainerRef} style={{ overflowY: "auto", flex: 1 }}>
               {loading ? (
                 [1,2,3].map(i => (
                   <div key={i} style={{ padding: "1rem 1.2rem", display: "flex", gap: ".8rem", borderBottom: "1px solid var(--fog)" }}>
