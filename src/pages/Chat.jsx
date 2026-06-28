@@ -188,7 +188,7 @@ export default function Chat() {
           </div>
         </div>
 
-        <div className="chat-grid" style={{ display: "grid", gridTemplateColumns: "320px 1fr", flex: 1, minHeight: 0, background: "var(--white)", borderRadius: "12px", boxShadow: "0 4px 24px rgba(0,0,0,.08)", overflow: "hidden", border: "1px solid var(--fog)" }}>
+        <div className="chat-layout">
 
           {/* ── LEFT: Conversations ── */}
           <div style={{ display: "flex", flexDirection: "column", borderRight: "1px solid var(--fog)", background: "var(--white)" }}>

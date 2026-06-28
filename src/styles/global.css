@@ -184,3 +184,57 @@ footer { background: var(--canal); color: var(--stone); padding: 2.8rem 2.5rem 1
     gap: 1.5rem !important;
   }
 }
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.chat-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  flex: 1;
+  min-height: 0;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
+  overflow: hidden;
+  border: 1px solid var(--fog);
+}
+
+@media (max-width: 768px) {
+  .detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .chat-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Hide conversation list on mobile when chat is open */
+  .chat-conv-panel {
+    display: none;
+  }
+
+  .chat-conv-panel.show {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    inset: 64px 0 0 0;
+    z-index: 50;
+    background: var(--white);
+  }
+
+  /* Property detail sticky card becomes normal on mobile */
+  .detail-price-card {
+    position: static !important;
+  }
+
+  /* Thumbnail images scroll horizontal */
+  .img-thumbnails {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+  }
+}

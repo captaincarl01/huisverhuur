@@ -123,7 +123,7 @@ const handleStartChat = () => {
               style={{ width: "100%", height: "380px", objectFit: "cover", borderRadius: "10px", display: "block" }}
             />
             {property.images.length > 1 && (
-              <div style={{ display: "flex", gap: ".5rem", marginTop: ".6rem", flexWrap: "wrap" }}>
+              <div className="img-thumbnails" style={{ display: "flex", gap: ".5rem", marginTop: ".6rem", flexWrap: "wrap" }}>
                 {property.images.map((img, i) => (
                   <img
                     key={i}
@@ -143,7 +143,7 @@ const handleStartChat = () => {
         )}
 
         {/* Main content */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "2.5rem", alignItems: "start" }}>
+        <div className="detail-grid">
 
           {/* Left */}
           <div>
@@ -220,7 +220,7 @@ const handleStartChat = () => {
           </div>
 
           {/* Right — sticky price card */}
-          <div style={{ position: "sticky", top: "80px" }}>
+          <div className="detail-price-card" style={{ position: "sticky", top: "80px" }}>
             <div style={{ background: "var(--white)", borderRadius: "10px", boxShadow: "0 4px 24px rgba(0,0,0,.1)", padding: "1.6rem" }}>
               <div style={{ fontSize: "1.8rem", fontWeight: 600, color: "var(--canal)", marginBottom: ".2rem" }}>
                 €{property.price?.toLocaleString()} <span style={{ fontSize: ".85rem", fontWeight: 400, color: "var(--mist)" }}>/mo</span>
