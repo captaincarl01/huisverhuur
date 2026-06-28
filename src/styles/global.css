@@ -244,3 +244,20 @@ footer { background: var(--canal); color: var(--stone); padding: 2.8rem 2.5rem 1
     flex-wrap: nowrap !important;
   }
 }
+@media (max-width: 768px) {
+  /* Fix image overflow */
+  img {
+    max-width: 100% !important;
+  }
+
+  /* Fix overall page padding */
+  .listings-section {
+    padding: 1.5rem 1rem !important;
+  }
+
+  /* Fix property detail padding */
+  .property-detail-wrap {
+    padding: 1.5rem 1rem !important;
+    overflow-x: hidden !important;
+  }
+}

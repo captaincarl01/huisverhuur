@@ -106,7 +106,7 @@ const handleStartChat = () => {
 
   return (
     <>
-      <div style={{ maxWidth: "960px", margin: "0 auto", padding: "2.5rem 2rem" }}>
+      <div className="property-detail-wrap" style={{ maxWidth: "960px", margin: "0 auto", padding: "2.5rem 2rem" }}>
 
         {/* Back */}
         <button onClick={() => navigate("/listings")}
