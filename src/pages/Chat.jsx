@@ -76,18 +76,24 @@ export default function Chat() {
   useEffect(() => {
     if (!socket) return;
     socket.on("newMessage", (message) => {
-      if (message.conversationId === activeConv) {
-        setMessages(prev => prev.find(m => m._id === message._id) ? prev : [...prev, message]);
-      }
-      fetchConversations();
-    });
+  // Only add if it's from the OTHER person, not ourselves
+  // Our own messages are already added by handleSend
+  if (message.sender?._id !== user?._id) {
+    if (message.conversationId === activeConv) {
+      setMessages(prev => prev.find(m => m._id === message._id) ? prev : [...prev, message]);
+    }
+  }
+  fetchConversations();
+});
     socket.on("userTyping", ({ isTyping }) => setOtherTyping(isTyping));
     return () => { socket.off("newMessage"); socket.off("userTyping"); };
   }, [socket, activeConv]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, otherTyping]);
+  if (messagesEndRef.current) {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+}, [messages, otherTyping]);
 
   const handleSend = async () => {
     if (!content.trim() || !activeConv || sending) return;

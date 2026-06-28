@@ -192,6 +192,12 @@ footer { background: var(--canal); color: var(--stone); padding: 2.8rem 2.5rem 1
   align-items: start;
 }
 
+.detail-price-card {
+  position: sticky;
+  top: 80px;
+}
+
+
 .chat-layout {
   display: grid;
   grid-template-columns: 320px 1fr;
