@@ -1,17 +1,19 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: process.env.SMTP_HOST,
+  port: parseInt(process.env.SMTP_PORT),
+  secure: false,
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
   },
 });
 
 const sendVerificationEmail = async (email, firstName, token) => {
   const verifyUrl = `${process.env.CLIENT_URL}/verify-email/${token}`;
   await transporter.sendMail({
-    from: `"HuisVerhuur" <${process.env.EMAIL_USER}>`,
+    from: `"HuisVerhuur" <${process.env.SMTP_USER}>`,
     to: email,
     subject: "Verify your HuisVerhuur account",
     html: `
@@ -36,7 +38,7 @@ const sendVerificationEmail = async (email, firstName, token) => {
 const sendPasswordResetEmail = async (email, firstName, token) => {
   const resetUrl = `${process.env.CLIENT_URL}/reset-password/${token}`;
   await transporter.sendMail({
-    from: `"HuisVerhuur" <${process.env.EMAIL_USER}>`,
+    from: `"HuisVerhuur" <${process.env.SMTP_USER}>`,
     to: email,
     subject: "Reset your HuisVerhuur password",
     html: `
@@ -50,7 +52,7 @@ const sendPasswordResetEmail = async (email, firstName, token) => {
           Reset Password
         </a>
         <p style="color:#C8BFB0;font-size:.8rem;margin-top:1.5rem;">
-          This link expires in 1 hour. If you didn't request a password reset, ignore this email — your account is safe.
+          This link expires in 1 hour. If you didn't request a reset, ignore this email.
         </p>
         <hr style="border:none;border-top:1px solid #EEE9E0;margin:1.5rem 0;" />
         <p style="color:#C8BFB0;font-size:.75rem;">© 2026 HuisVerhuur B.V. · Amsterdam</p>
