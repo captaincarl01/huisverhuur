@@ -1,15 +1,14 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT),
+  host: "smtp-relay.brevo.com",
+  port: 587,
   secure: false,
   auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
+    user: "b0500f001@smtp-brevo.com",
+    pass: "n2mMNWgXk1PEBfzO",
   },
 });
-
 const sendVerificationEmail = async (email, firstName, token) => {
   const verifyUrl = `${process.env.CLIENT_URL}/verify-email/${token}`;
   await transporter.sendMail({

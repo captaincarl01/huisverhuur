@@ -7,6 +7,7 @@ const connectDB  = require("./config/db");
 const jwt        = require("jsonwebtoken");
 const User       = require("./models/User");
 const Message    = require("./models/Message");
+const fetch = require("node-fetch");
 
 dotenv.config();
 connectDB();
@@ -99,3 +100,17 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Keep Railway awake - ping every 14 minutes
+const keepAlive = () => {
+  setInterval(async () => {
+    try {
+      await fetch(`https://huisverhuur-production.up.railway.app/api/health`);
+      console.log("Keep-alive ping sent");
+    } catch (err) {
+      console.log("Keep-alive failed:", err.message);
+    }
+  }, 14 * 60 * 1000); // 14 minutes
+};
+
+keepAlive();
