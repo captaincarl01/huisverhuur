@@ -21,6 +21,7 @@
     "mongoose": "^9.7.1",
     "node-fetch": "^2.7.0",
     "nodemailer": "^9.0.1",
+    "resend": "^6.17.2",
     "socket.io": "^4.8.3"
   }
 }

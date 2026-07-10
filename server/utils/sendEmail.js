@@ -1,19 +1,11 @@
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT),
-  secure: true,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendVerificationEmail = async (email, firstName, token) => {
   const verifyUrl = `${process.env.CLIENT_URL}/verify-email/${token}`;
-  await transporter.sendMail({
-    from: `"HuisVerhuur" <${process.env.SMTP_USER}>`,
+  await resend.emails.send({
+    from: "HuisVerhuur <onboarding@resend.dev>",
     to: email,
     subject: "Verify your HuisVerhuur account",
     html: `
@@ -37,8 +29,8 @@ const sendVerificationEmail = async (email, firstName, token) => {
 
 const sendPasswordResetEmail = async (email, firstName, token) => {
   const resetUrl = `${process.env.CLIENT_URL}/reset-password/${token}`;
-  await transporter.sendMail({
-    from: `"HuisVerhuur" <${process.env.SMTP_USER}>`,
+  await resend.emails.send({
+    from: "HuisVerhuur <onboarding@resend.dev>",
     to: email,
     subject: "Reset your HuisVerhuur password",
     html: `
@@ -62,6 +54,5 @@ const sendPasswordResetEmail = async (email, firstName, token) => {
 };
 
 module.exports = { sendVerificationEmail, sendPasswordResetEmail };
-
 
 
